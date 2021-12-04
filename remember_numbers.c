@@ -11,7 +11,7 @@ Code, Compile, Run and Debug online from anywhere in world.
 #include <time.h>
 #include <stdbool.h>
 
-#define N 5
+#define N 4
 
 int gen_num_arr[N];
 char user_arr[N];
@@ -39,12 +39,18 @@ void generate_num(){
     for(int i=0;i<N;i++) gen_num_arr[i]= rand()% 10;
 }
 void print_gen_numbers(int *arr){
+    char x;
     for(int *p=arr;p<arr+N;p++) printf("%d",*p);
     printf("\n");
+    printf("Are you ready? Press y to start: \n");
+    scanf("%c",&x);
+    if(getchar()!='\n');
+    if(x!='y') exit(1);
+    printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 }
 void user_input(){
     printf("Type numbers:\n");
-    scanf("%5[^n]",user_arr);
+    scanf("%4[^n]",user_arr);
 }
 void check(){
     for(int i=0;i<N;i++){
