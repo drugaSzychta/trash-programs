@@ -4,6 +4,7 @@
 #include <time.h>
 #include <stdbool.h>
 
+#define DEBUG 1
 #define N 10
 /******************************************************************
  * This program is my try for the below codewars problem:
@@ -53,32 +54,43 @@ int main()
 		
 		for(int i = 0 ; i + 1 < N ; i++){
 			if(strcmp(arr_rand[i],dir[0]) == 0 && strcmp(arr_rand[i+1],dir[2]) == 0){
+				resize_arr(i);
+				#if DEBUG
 				printf("Mamy NORTH, nastepny SOUTH. Iteracja: %d\n",i);
-				resize_arr(i);
-				comp_flag = true, i = 0;
 				print_step();
+				#endif
+				comp_flag = true, i = 0;
 			}
-			else if(strcmp(arr_rand[i],dir[1]) == 0 && strcmp(arr_rand[i+1],dir[3]) == 0){
-				printf("Mamy EAST, następny WEST. Iteracja: %d\n",i);
+			else if(strcmp(arr_rand[i],dir[1]) == 0 && strcmp(arr_rand[i+1],dir[3]) == 0){;
 				resize_arr(i);
-				comp_flag = true, i = 0;
+				#if DEBUG
+				printf("Mamy EAST, następny WEST. Iteracja: %d\n",i);
 				print_step();
+				#endif
+				comp_flag = true, i = 0;
 			}
 			else if( strcmp(arr_rand[i],dir[2]) == 0 && strcmp(arr_rand[i+1],dir[0]) == 0){
-				printf("Mamy SOUTH, następny NORTH. Iteracja: %d\n",i);
 				resize_arr(i);
-				comp_flag = true, i = 0;
+				#if DEBUG
+				printf("Mamy SOUTH, następny NORTH. Iteracja: %d\n",i);
 				print_step();
+				#endif
+				comp_flag = true, i = 0;
 			}
 			else if( strcmp(arr_rand[i],dir[3]) == 0 && strcmp(arr_rand[i+1],dir[1]) == 0){
-				printf("Mamy WEST, następny EAST. Iteracja: %d\n",i);
 				resize_arr(i);
-				comp_flag = true, i = 0;
+				#if DEBUG
+				printf("Mamy WEST, następny EAST. Iteracja: %d\n",i);
 				print_step();
+				#endif
+				comp_flag = true, i = 0;
 			}
 				
 		}
 	}while(comp_flag);
+	
+	printf("Result:\n");
+	print_step();
     
     return 0;
 }
@@ -101,6 +113,12 @@ void print_step(){
 		if(strcmp(*(arr_rand + i)," ") != 0)
         printf("%s, ",*(arr_rand + i) );
     printf("\n");
+    #if DEBUG
+        int counter=0;
+        for(int i = 0 ; i < N ; i++){
+            if(strcmp( *(arr_rand + i)," " ) != 0)
+                counter++;
+        }
+        printf("Orginal size: %d Current size of array: %d\n",N,counter);
+    #endif
 }
-
-
