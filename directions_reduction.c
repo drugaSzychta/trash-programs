@@ -5,6 +5,7 @@
 #include <stdbool.h>
 
 #define DEBUG 1
+#define PRINT_DIR(t1,t2,i) printf("Mamy %s, następny to %s. Iteracja: %d\n", t1, t2, i)
 #define N 10
 /******************************************************************
  * This program is my try for the below codewars problem:
@@ -56,7 +57,7 @@ int main()
 			if(strcmp(arr_rand[i],dir[0]) == 0 && strcmp(arr_rand[i+1],dir[2]) == 0){
 				resize_arr(i);
 				#if DEBUG
-				printf("Mamy NORTH, nastepny SOUTH. Iteracja: %d\n",i);
+				PRINT_DIR("NORTH","SOUTH",i);
 				print_step();
 				#endif
 				comp_flag = true, i = 0;
@@ -64,7 +65,7 @@ int main()
 			else if(strcmp(arr_rand[i],dir[1]) == 0 && strcmp(arr_rand[i+1],dir[3]) == 0){;
 				resize_arr(i);
 				#if DEBUG
-				printf("Mamy EAST, następny WEST. Iteracja: %d\n",i);
+				PRINT_DIR("EAST","WEST",i);
 				print_step();
 				#endif
 				comp_flag = true, i = 0;
@@ -72,7 +73,7 @@ int main()
 			else if( strcmp(arr_rand[i],dir[2]) == 0 && strcmp(arr_rand[i+1],dir[0]) == 0){
 				resize_arr(i);
 				#if DEBUG
-				printf("Mamy SOUTH, następny NORTH. Iteracja: %d\n",i);
+				PRINT_DIR("SOUTH","NORTH",i);
 				print_step();
 				#endif
 				comp_flag = true, i = 0;
@@ -80,7 +81,7 @@ int main()
 			else if( strcmp(arr_rand[i],dir[3]) == 0 && strcmp(arr_rand[i+1],dir[1]) == 0){
 				resize_arr(i);
 				#if DEBUG
-				printf("Mamy WEST, następny EAST. Iteracja: %d\n",i);
+				PRINT_DIR("WEST","EAST",i);
 				print_step();
 				#endif
 				comp_flag = true, i = 0;
